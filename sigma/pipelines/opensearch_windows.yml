@@ -1,0 +1,12 @@
+name: opensearch_windows
+priority: 50
+transformations:
+  - id: field_name_mapping
+    type: field_name_mapping
+    mapping:
+      EventID: event.code
+      Image: process.executable
+      CommandLine: process.command_line
+      ParentImage: process.parent.executable
+      User: user.name
+      Computer: host.name

@@ -1,0 +1,1 @@
+date=%{DATE:date} time=%{TIME:time} device=%{DATA:device} action=%{WORD:action} src=%{IP:src} dst=%{IP:dst} spt=%{NUMBER:spt:int} dpt=%{NUMBER:dpt:int} proto=%{WORD:proto} rule=%{DATA:rule}

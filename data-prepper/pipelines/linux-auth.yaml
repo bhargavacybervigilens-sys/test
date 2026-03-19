@@ -1,0 +1,20 @@
+linux-auth-pipeline:
+  source:
+    pipeline:
+      name: "router-pipeline"
+  processor:
+    - grok:
+        match:
+          message:
+            - "%{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:hostname} %{DATA:program}(?:\\[%{NUMBER:pid:int}\\])?: %{GREEDYDATA:message}"
+    - add_entries:
+        entries:
+          - key: "event.dataset"
+            value: "linux.auth"
+  sink:
+    - opensearch:
+        hosts: ["https://opensearch:9200"]
+        insecure: true
+        username: "admin"
+        password: "admin"
+        index: "logs-linux-auth"

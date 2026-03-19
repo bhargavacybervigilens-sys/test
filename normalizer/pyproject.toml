@@ -1,0 +1,19 @@
+[project]
+name = "siem-normalizer"
+version = "0.1.0"
+description = "Starter parser and normalization engine for an OpenSearch SIEM"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

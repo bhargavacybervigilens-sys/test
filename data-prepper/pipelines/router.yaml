@@ -1,0 +1,32 @@
+router-pipeline:
+  source:
+    pipeline:
+      name: "entry-pipeline"
+  processor:
+    - route:
+        routes:
+          - linux_auth: '/tags == "linux.auth"'
+          - windows_security: '/tags == "windows.security"'
+          - windows_sysmon: '/tags == "windows.sysmon"'
+          - firewall: '/tags == "network.firewall"'
+          - cloudtrail: '/tags == "cloud.cloudtrail"'
+          - unknown: 'true'
+  sink:
+    - pipeline:
+        name: "linux-auth-pipeline"
+        routes: ["linux_auth"]
+    - pipeline:
+        name: "windows-security-pipeline"
+        routes: ["windows_security"]
+    - pipeline:
+        name: "windows-sysmon-pipeline"
+        routes: ["windows_sysmon"]
+    - pipeline:
+        name: "firewall-pipeline"
+        routes: ["firewall"]
+    - pipeline:
+        name: "cloudtrail-pipeline"
+        routes: ["cloudtrail"]
+    - pipeline:
+        name: "dead-letter-pipeline"
+        routes: ["unknown"]

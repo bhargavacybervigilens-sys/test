@@ -1,0 +1,17 @@
+[sources.app]
+type = "file"
+include = ["/var/log/myapp/*.json"]
+read_from = "beginning"
+
+[transforms.tag]
+type = "remap"
+inputs = ["app"]
+source = '''
+.tags = "app.json"
+'''
+
+[sinks.out]
+type = "http"
+inputs = ["tag"]
+uri = "http://data-prepper:2021/log/ingest"
+encoding.codec = "json"

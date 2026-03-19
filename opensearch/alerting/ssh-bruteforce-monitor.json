@@ -1,0 +1,20 @@
+{
+  "name": "SSH Failed Login Events",
+  "type": "monitor",
+  "monitor_type": "query_level_monitor",
+  "inputs": [
+    {
+      "search": {
+        "indices": ["logs-linux-auth-*"],
+        "query": {
+          "size": 100,
+          "query": {
+            "query_string": {
+              "query": "process.name:sshd AND event.outcome:failure"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

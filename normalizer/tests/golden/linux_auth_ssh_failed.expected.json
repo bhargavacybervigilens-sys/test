@@ -1,0 +1,50 @@
+{
+  "@timestamp": "2026-03-19T12:40:12Z",
+  "event": {
+    "kind": "event",
+    "dataset": "linux.auth",
+    "category": ["authentication"],
+    "type": ["start", "denied"],
+    "action": "ssh_login",
+    "outcome": "failure",
+    "original": "Mar 19 12:40:12 srv-01 sshd[12345]: Failed password for invalid user admin from 203.0.113.9 port 51122 ssh2"
+  },
+  "host": {
+    "name": "srv-01"
+  },
+  "process": {
+    "name": "sshd",
+    "pid": 12345
+  },
+  "user": {
+    "name": "admin"
+  },
+  "source": {
+    "ip": "203.0.113.9",
+    "port": 51122
+  },
+  "network": {
+    "protocol": "ssh",
+    "transport": "tcp"
+  },
+  "parser": {
+    "id": "linux-auth-syslog",
+    "version": "0.1.0",
+    "status": "success",
+    "confidence": 0.96
+  },
+  "vendor": {
+    "syslog": {
+      "timestamp": "Mar 19 12:40:12",
+      "hostname": "srv-01",
+      "program": "sshd",
+      "pid": 12345,
+      "message": "Failed password for invalid user admin from 203.0.113.9 port 51122 ssh2"
+    }
+  },
+  "sigma": {
+    "program": "sshd",
+    "user": "admin",
+    "src_ip": "203.0.113.9"
+  }
+}

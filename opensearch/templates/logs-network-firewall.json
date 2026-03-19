@@ -1,0 +1,12 @@
+{
+  "index_patterns": ["logs-network-firewall-*"],
+  "priority": 200,
+  "composed_of": ["component-common"],
+  "template": {
+    "settings": {
+      "number_of_shards": 2,
+      "number_of_replicas": 1,
+      "refresh_interval": "5s"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+entry-pipeline:
+  source:
+    http:
+      path: "/log/ingest"
+  processor:
+    - add_entries:
+        entries:
+          - key: "labels.pipeline"
+            value: "entry"
+  sink:
+    - pipeline:
+        name: "router-pipeline"

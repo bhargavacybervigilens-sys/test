@@ -1,0 +1,17 @@
+[sources.syslog_in]
+type = "syslog"
+address = "0.0.0.0:1514"
+mode = "udp"
+
+[transforms.tag]
+type = "remap"
+inputs = ["syslog_in"]
+source = '''
+.tags = "linux.syslog"
+'''
+
+[sinks.out]
+type = "http"
+inputs = ["tag"]
+uri = "http://data-prepper:2021/log/ingest"
+encoding.codec = "json"

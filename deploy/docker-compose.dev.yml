@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  opensearch:
+    image: opensearchproject/opensearch:latest
+    environment:
+      discovery.type: single-node
+      plugins.security.disabled: "true"
+      OPENSEARCH_JAVA_OPTS: "-Xms1g -Xmx1g"
+    ports:
+      - "9200:9200"
+      - "9600:9600"
+
+  data-prepper:
+    image: opensearchproject/data-prepper:latest
+    depends_on:
+      - opensearch
+    ports:
+      - "2021:2021"
+    volumes:
+      - ../data-prepper/pipelines:/usr/share/data-prepper/pipelines
+
+  fluent-bit:
+    image: cr.fluentbit.io/fluent/fluent-bit:latest
+    depends_on:
+      - data-prepper
+    volumes:
+      - ../collectors/fluent-bit/linux:/fluent-bit/etc

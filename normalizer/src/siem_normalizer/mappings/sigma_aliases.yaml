@@ -1,0 +1,10 @@
+windows:
+  EventID: event.code
+  Image: process.executable
+  CommandLine: process.command_line
+  ParentImage: process.parent.executable
+  User: user.name
+linux_auth:
+  program: process.name
+  user: user.name
+  src_ip: source.ip

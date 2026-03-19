@@ -1,0 +1,23 @@
+name: windows_security
+dataset: windows.security
+field_mappings:
+  Computer: host.name
+  SubjectUserName: user.name
+  EventID: event.code
+  NewProcessName: process.executable
+  CommandLine: process.command_line
+  ParentProcessName: process.parent.executable
+derived:
+  - when:
+      EventID: 4688
+    set:
+      event.category: [process]
+      event.type: [start]
+      event.action: process_start
+      event.outcome: success
+sigma_aliases:
+  EventID: EventID
+  Image: NewProcessName
+  CommandLine: CommandLine
+  ParentImage: ParentProcessName
+  User: SubjectUserName

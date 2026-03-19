@@ -1,0 +1,9 @@
+name: windows_sysmon
+dataset: windows.sysmon
+field_mappings:
+  Computer: host.name
+  User: user.name
+  EventID: event.code
+  Image: process.executable
+  ParentImage: process.parent.executable
+  CommandLine: process.command_line

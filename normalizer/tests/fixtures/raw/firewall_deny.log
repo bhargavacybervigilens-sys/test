@@ -1,0 +1,1 @@
+date=2026-03-19 time=12:55:01 device=fw-01 action=deny src=10.10.5.21 dst=198.51.100.7 spt=51514 dpt=443 proto=tcp rule=block-egress

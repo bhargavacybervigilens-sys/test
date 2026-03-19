@@ -1,0 +1,21 @@
+{
+  "name": "Suspicious CMD Whoami",
+  "type": "monitor",
+  "monitor_type": "query_level_monitor",
+  "inputs": [
+    {
+      "search": {
+        "indices": ["logs-windows-security-*", "logs-windows-sysmon-*"],
+        "query": {
+          "size": 100,
+          "query": {
+            "query_string": {
+              "query": "process.executable:*\\\\cmd.exe AND process.command_line:*whoami*",
+              "analyze_wildcard": true
+            }
+          }
+        }
+      }
+    }
+  ]
+}

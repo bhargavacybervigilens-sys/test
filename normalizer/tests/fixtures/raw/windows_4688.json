@@ -1,0 +1,10 @@
+{
+  "tags": "windows.security",
+  "EventID": 4688,
+  "Computer": "WS-01",
+  "SubjectUserName": "alice",
+  "NewProcessName": "C:\\Windows\\System32\\cmd.exe",
+  "CommandLine": "cmd.exe /c whoami",
+  "ParentProcessName": "C:\\Windows\\explorer.exe",
+  "TimeCreated": "2026-03-19T13:04:55Z"
+}
