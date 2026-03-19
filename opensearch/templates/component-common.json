@@ -1,0 +1,25 @@
+{
+  "template": {
+    "mappings": {
+      "dynamic": false,
+      "properties": {
+        "@timestamp": {"type": "date"},
+        "event.kind": {"type": "keyword"},
+        "event.category": {"type": "keyword"},
+        "event.type": {"type": "keyword"},
+        "event.action": {"type": "keyword"},
+        "event.outcome": {"type": "keyword"},
+        "event.dataset": {"type": "keyword"},
+        "event.code": {"type": "keyword"},
+        "event.original": {"type": "wildcard"},
+        "host.name": {"type": "keyword"},
+        "user.name": {"type": "keyword"},
+        "process.name": {"type": "keyword"},
+        "process.executable": {"type": "keyword"},
+        "process.command_line": {"type": "wildcard"},
+        "source.ip": {"type": "ip"},
+        "destination.ip": {"type": "ip"}
+      }
+    }
+  }
+}

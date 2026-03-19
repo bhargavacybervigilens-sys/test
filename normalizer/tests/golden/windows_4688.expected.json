@@ -1,0 +1,54 @@
+{
+  "@timestamp": "2026-03-19T13:04:55Z",
+  "event": {
+    "kind": "event",
+    "dataset": "windows.security",
+    "code": "4688",
+    "category": ["process"],
+    "type": ["start"],
+    "action": "process_start",
+    "outcome": "success",
+    "original": null
+  },
+  "host": {
+    "name": "WS-01"
+  },
+  "user": {
+    "name": "alice"
+  },
+  "process": {
+    "name": "cmd.exe",
+    "executable": "C:\\Windows\\System32\\cmd.exe",
+    "command_line": "cmd.exe /c whoami",
+    "parent": {
+      "name": "explorer.exe",
+      "executable": "C:\\Windows\\explorer.exe"
+    }
+  },
+  "parser": {
+    "id": "windows-security-json",
+    "version": "0.1.0",
+    "status": "success",
+    "confidence": 0.99
+  },
+  "vendor": {
+    "windows": {
+      "tags": "windows.security",
+      "EventID": 4688,
+      "Computer": "WS-01",
+      "SubjectUserName": "alice",
+      "NewProcessName": "C:\\Windows\\System32\\cmd.exe",
+      "CommandLine": "cmd.exe /c whoami",
+      "ParentProcessName": "C:\\Windows\\explorer.exe",
+      "TimeCreated": "2026-03-19T13:04:55Z"
+    }
+  },
+  "sigma": {
+    "EventID": 4688,
+    "Image": "C:\\Windows\\System32\\cmd.exe",
+    "CommandLine": "cmd.exe /c whoami",
+    "ParentImage": "C:\\Windows\\explorer.exe",
+    "User": "alice",
+    "Computer": "WS-01"
+  }
+}

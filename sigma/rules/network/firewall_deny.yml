@@ -1,0 +1,11 @@
+title: Firewall Deny Event
+id: 33333333-4444-5555-6666-777777777777
+status: test
+logsource:
+  product: network
+  service: firewall
+detection:
+  selection:
+    action: deny
+  condition: selection
+level: low

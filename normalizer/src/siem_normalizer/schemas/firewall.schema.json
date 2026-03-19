@@ -1,0 +1,4 @@
+{
+  "type": "object",
+  "required": ["@timestamp", "event", "observer", "source", "destination", "parser"]
+}

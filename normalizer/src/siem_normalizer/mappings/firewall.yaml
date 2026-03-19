@@ -1,0 +1,10 @@
+name: firewall
+dataset: firewall.traffic
+field_mappings:
+  device: observer.name
+  src: source.ip
+  spt: source.port
+  dst: destination.ip
+  dpt: destination.port
+  proto: network.protocol
+  rule: rule.name

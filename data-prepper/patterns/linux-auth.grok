@@ -1,0 +1,1 @@
+%{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:hostname} %{DATA:program}(?:\[%{NUMBER:pid:int}\])?: %{GREEDYDATA:message}

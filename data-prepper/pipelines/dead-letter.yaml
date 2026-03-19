@@ -1,0 +1,11 @@
+dead-letter-pipeline:
+  source:
+    pipeline:
+      name: "router-pipeline"
+  sink:
+    - opensearch:
+        hosts: ["https://opensearch:9200"]
+        insecure: true
+        username: "admin"
+        password: "admin"
+        index: "logs-dead-letter"

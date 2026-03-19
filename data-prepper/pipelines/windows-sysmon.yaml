@@ -1,0 +1,16 @@
+windows-sysmon-pipeline:
+  source:
+    pipeline:
+      name: "router-pipeline"
+  processor:
+    - add_entries:
+        entries:
+          - key: "event.dataset"
+            value: "windows.sysmon"
+  sink:
+    - opensearch:
+        hosts: ["https://opensearch:9200"]
+        insecure: true
+        username: "admin"
+        password: "admin"
+        index: "logs-windows-sysmon"
